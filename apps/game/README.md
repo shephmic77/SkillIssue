@@ -2,8 +2,6 @@
 
 The Godot 4.7 project: the split-screen match, the shared Duo character, weapons, maps, menus and the lobby server built into the game.
 
-<img src="../../docs/hackathon-journal/images/noir-play.png" alt="Split-screen match in The Pit" width="100%">
-
 ## Run it
 
 1. Open this folder in **Godot 4.7** (the GL Compatibility renderer).

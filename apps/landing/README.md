@@ -5,8 +5,6 @@ The Next.js 16 app behind **skillissue.vodka**, hosted on Vercel. It does two jo
 1. **The homepage** explains the game: the poster, roles, how to join, the guns and the map.
 2. **A small API** the game and phones need to find each other, plus the AI match MVP.
 
-<img src="../../docs/website/screenshots/homepage-desktop-top.png" alt="The homepage" width="100%">
-
 A permanent snapshot of the page, with full-page screenshots, is in [docs/website](../../docs/website/README.md).
 
 ## Run it

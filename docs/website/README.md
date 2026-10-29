@@ -5,7 +5,6 @@ The game's website ran at **[skillissue.vodka](https://skillissue.vodka/)**. The
 | What | Where | Opens on GitHub? |
 | --- | --- | --- |
 | Full-page screenshots, desktop and phone | [`screenshots/`](screenshots/) | Yes |
-| The artwork used on the page | [`images/`](images/) | Yes |
 | The working page itself (one self-contained HTML file, all images built in) | [`apps/landing/public/home-preview.html`](../../apps/landing/public/home-preview.html) | Download and open it in any browser; it works offline |
 
 The screenshots were rendered from `home-preview.html` on `main`, the exact file the live site served at `/`, in headless Chromium at 1440 px (desktop) and 390 px (phone).
@@ -40,26 +39,6 @@ The screenshots were rendered from `home-preview.html` on `main`, the exact file
 | **How to join** (`#join`) | Four phones, one lobby code: get the code, open the app, pick a side, get ready |
 | **The Arsenal** (`#arsenal`) | Pistol, shotgun and sniper, with damage, fire rate, range and magazine |
 | **The Match** (`#match`) | The Pit, first to 10 kills, and the core rules |
-
-### Artwork
-
-<table>
-  <tr>
-    <td colspan="3"><img src="images/hero-poster.png" alt="Hero poster: raccoons in trench coats in a rainy noir city"></td>
-  </tr>
-  <tr>
-    <td colspan="3"><img src="images/roles-panel.png" alt="Roles panel explaining the Runner and Gunner"></td>
-  </tr>
-  <tr>
-    <td><img src="images/gun-pistol.jpg" alt="Pistol"></td>
-    <td><img src="images/gun-shotgun.jpg" alt="Shotgun"></td>
-    <td><img src="images/gun-sniper.jpg" alt="Sniper"></td>
-  </tr>
-  <tr>
-    <td colspan="2"><img src="images/arena-the-pit.jpg" alt="The Pit at ground level"></td>
-    <td><img src="images/arena-the-pit-overhead.jpg" alt="The Pit from above"></td>
-  </tr>
-</table>
 
 ## How the homepage worked
 

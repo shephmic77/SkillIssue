@@ -6,9 +6,6 @@ An Expo controller for Skill Issue. Each team uses a movement phone and a gunner
 | --- | --- |
 | <img src="../../docs/hackathon-journal/images/phone-mover.png" alt="Runner phone screen"> | <img src="../../docs/hackathon-journal/images/phone-gunner.png" alt="Gunner phone screen"> |
 
-<img src="../../docs/hackathon-journal/images/app-noir-preview.png" alt="Noir menu, join code, team select and game over screens" width="100%">
-<sub>Menu, join code, team and role select, and game over.</sub>
-
 ## Start
 
 Use Node.js 24 and run from the repository root:

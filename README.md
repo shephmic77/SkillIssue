@@ -36,28 +36,11 @@ They share one health bar and one score. Neither player can win alone. The first
   <br><sub>A split-screen match in <b>The Pit</b>: Blue on the left, Red on the right.</sub>
 </p>
 
-## Gallery
+## The phones
 
-<table>
-  <tr>
-    <td width="50%"><img src="docs/hackathon-journal/images/ui-menu.png" alt="Main menu"><br><sub>Main menu</sub></td>
-    <td width="50%"><img src="docs/hackathon-journal/images/ui-lobby.png" alt="Lobby with a six-character join code"><br><sub>Lobby: phones join with a six-character code</sub></td>
-  </tr>
-  <tr>
-    <td><img src="docs/hackathon-journal/images/raccoon-polish.png" alt="Low-poly raccoon Duo models"><br><sub>The Duo character: two raccoons, one coat</sub></td>
-    <td><img src="docs/hackathon-journal/images/noir-pit.png" alt="Overhead view of The Pit in the rain"><br><sub>The Pit: a three-level city block in the rain</sub></td>
-  </tr>
-  <tr>
-    <td><img src="docs/hackathon-journal/images/phone-mover.png" alt="Runner phone screen"><br><sub>Runner phone</sub></td>
-    <td><img src="docs/hackathon-journal/images/phone-gunner.png" alt="Gunner phone screen"><br><sub>Gunner phone</sub></td>
-  </tr>
-  <tr>
-    <td><img src="docs/hackathon-journal/images/fx-hat.png" alt="A headshot knocks the fedora off"><br><sub>A headshot knocks the fedora off</sub></td>
-    <td><img src="docs/hackathon-journal/images/ui-results.png" alt="Results screen with match MVP"><br><sub>Results with the AI-judged match MVP</sub></td>
-  </tr>
-</table>
-
-More images: the [hackathon journal](docs/hackathon-journal/README.md) (whiteboards, playtests, every model version) and the [website snapshot](docs/website/README.md).
+| Runner phone | Gunner phone |
+| --- | --- |
+| <img src="docs/hackathon-journal/images/phone-mover.png" alt="Runner phone: tilt pad, jump and crouch"> | <img src="docs/hackathon-journal/images/phone-gunner.png" alt="Gunner phone: weapon slots, scope and fire button"> |
 
 ## How it fits together
 

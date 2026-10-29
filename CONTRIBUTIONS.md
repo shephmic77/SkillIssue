@@ -1,9 +1,5 @@
 # My contributions: Michael Shepherd
 
-<p align="center">
-  <img src="docs/hackathon-journal/images/raccoon-hero-v2.png" alt="The in-game raccoon Duo model in a red trench coat and fedora" width="360">
-</p>
-
 Skill Issue was a five-person team project at **HackPSU Fall 2026** (Oct 24–25). This page covers **only the parts I built**. Every item is backed by a commit or pull request in the [team repository](https://github.com/Ryan-M-Smith/SkillIssue). Networking, the relay, the control plane, the Gemini MVP, motion sensing, the gameplay HUD and medkits were my teammates' work; see the [team table](README.md#team).
 
 **In one line:** I built the shared player character, the combat systems, the main map and the noir art direction, for the game and for the phone app.
@@ -84,24 +80,9 @@ Everything is built from Godot primitives inside `entities/duo/duo.tscn`, with t
 
 ## 4. Noir theme: game and phone app
 
-<table>
-  <tr>
-    <td width="50%"><img src="docs/hackathon-journal/images/noir-ring.png" alt="Noir rain and neon on the ring level"></td>
-    <td width="50%"><img src="docs/hackathon-journal/images/ui-board.png" alt="Case-file style scoreboard"></td>
-  </tr>
-  <tr>
-    <td><sub>Wet asphalt, rain and neon: <code>maps/noir_surface.gdshader</code></sub></td>
-    <td><sub>The Tab scoreboard as a "case file"</sub></td>
-  </tr>
-  <tr>
-    <td><img src="docs/hackathon-journal/images/ui-results.png" alt="Noir results screen"></td>
-    <td><img src="docs/hackathon-journal/images/app-noir-preview.png" alt="Noir phone app screens"></td>
-  </tr>
-  <tr>
-    <td><sub>Results screen</sub></td>
-    <td><sub>The phone app in the same style (PR #9)</sub></td>
-  </tr>
-</table>
+| The Pit in noir | The phone app in the same style (PR #9) |
+| --- | --- |
+| <img src="docs/hackathon-journal/images/noir-ring.png" alt="Wet asphalt, rain and neon on the ring level"> | <img src="docs/hackathon-journal/images/app-noir-preview.png" alt="Noir phone app screens"> |
 
 - **The game (PR #8):** black, white and gray everywhere, with **red and blue as the only saturated colors**, so the teams stand out. One UI kit (`ui/ui_kit.gd`) restyles every screen: the brick-wall background shader with spotlight, smoke, grain and flicker; extruded film-title lettering; and a script font.
 - **The phone app (PR #9):** the same palette, extruded titles and brick-wall background, ported to React Native (`apps/companion/src/screens/phone/`). It respects the phone's reduce-motion setting.
