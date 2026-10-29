@@ -1,105 +1,132 @@
-# Skill Issue
+<p align="center">
+  <img src="docs/website/images/hero-poster.png" alt="Skill Issue: two raccoons in trench coats facing off in a rainy noir city" width="100%">
+</p>
 
-A 2v2 split-screen game where each team shares one character: one phone moves, the other aims and shoots. First to 10 kills wins, or the leading team when the clock runs out (5 minutes by default; hosts can set 2 to 5).
+<h1 align="center">Skill Issue</h1>
 
-## Play
+<p align="center">
+  <b>One body. Two players. Zero excuses.</b><br>
+  A 2v2 split-screen shooter where each team shares one character, controlled by two phones.<br>
+  Built in about 20 hours by a team of five at <b>HackPSU Fall 2026</b> (Oct 24–25, Penn State University Park).
+</p>
 
-1. Open `apps/game` in Godot 4.7 and press **F5 / Run Project**. This opens the main menu. **F6 / Run Current Scene** runs whichever scene is open and can skip the menu.
-2. Choose **Create a Lobby**. Godot hosts the WebSocket server on port 8080; no separate server process is needed. Allow local network access if prompted.
-3. To run the companion from source, install Node.js 24, then run these commands from the repository root:
+<p align="center">
+  <img alt="Godot 4.7" src="https://img.shields.io/badge/Godot-4.7-478cbf?logo=godotengine&logoColor=white">
+  <img alt="Expo SDK 58" src="https://img.shields.io/badge/Expo-SDK%2058-000020?logo=expo&logoColor=white">
+  <img alt="Next.js 16" src="https://img.shields.io/badge/Next.js-16-000000?logo=nextdotjs&logoColor=white">
+  <img alt="Node WebSocket relay" src="https://img.shields.io/badge/Node-WebSocket%20relay-339933?logo=nodedotjs&logoColor=white">
+  <img alt="License: Apache 2.0" src="https://img.shields.io/badge/License-Apache%202.0-blue">
+</p>
 
+---
+
+## The idea
+
+Each team is **two raccoons stacked inside one trench coat**, pretending to be a person. Two teammates control that one body from two phones:
+
+| Role | Raccoon | Phone controls |
+| --- | --- | --- |
+| **Runner** | the bottom one, does the walking | tilt to move, twist to sprint, flick to jump or crouch |
+| **Gunner** | the top one, in the fedora, holds the gun | turn the phone to aim; FIRE, AIM, RELOAD and SWITCH buttons |
+
+They share one health bar and one score. Neither player can win alone. The first team to **10 kills** wins, or whoever is ahead when the clock runs out (5 minutes by default, 2 to 5 if the host changes it).
+
+<p align="center">
+  <img src="docs/hackathon-journal/images/noir-play.png" alt="Split-screen match in The Pit: Blue team on the left, Red team on the right" width="100%">
+  <br><sub>A split-screen match in <b>The Pit</b>: Blue on the left, Red on the right.</sub>
+</p>
+
+## Gallery
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/hackathon-journal/images/ui-menu.png" alt="Main menu"><br><sub>Main menu</sub></td>
+    <td width="50%"><img src="docs/hackathon-journal/images/ui-lobby.png" alt="Lobby with a six-character join code"><br><sub>Lobby: phones join with a six-character code</sub></td>
+  </tr>
+  <tr>
+    <td><img src="docs/hackathon-journal/images/raccoon-polish.png" alt="Low-poly raccoon Duo models"><br><sub>The Duo character: two raccoons, one coat</sub></td>
+    <td><img src="docs/hackathon-journal/images/noir-pit.png" alt="Overhead view of The Pit in the rain"><br><sub>The Pit: a three-level city block in the rain</sub></td>
+  </tr>
+  <tr>
+    <td><img src="docs/hackathon-journal/images/phone-mover.png" alt="Runner phone screen"><br><sub>Runner phone</sub></td>
+    <td><img src="docs/hackathon-journal/images/phone-gunner.png" alt="Gunner phone screen"><br><sub>Gunner phone</sub></td>
+  </tr>
+  <tr>
+    <td><img src="docs/hackathon-journal/images/fx-hat.png" alt="A headshot knocks the fedora off"><br><sub>A headshot knocks the fedora off</sub></td>
+    <td><img src="docs/hackathon-journal/images/ui-results.png" alt="Results screen with match MVP"><br><sub>Results with the AI-judged match MVP</sub></td>
+  </tr>
+</table>
+
+More images: the [hackathon journal](docs/hackathon-journal/README.md) (whiteboards, playtests, every model version) and the [website snapshot](docs/website/README.md).
+
+## How it fits together
+
+```mermaid
+flowchart LR
+    subgraph Phones["4 phones (Expo app)"]
+        R1[Blue Runner]
+        G1[Blue Gunner]
+        R2[Red Runner]
+        G2[Red Gunner]
+    end
+    Phones <-- "WebSocket: motion + buttons" --> Relay["Relay server<br/>(Node, or built into Godot)"]
+    Relay <-- WebSocket --> Game["Godot game<br/>split screen on one computer"]
+    Game -- "provision a lobby" --> Site["skillissue.vodka<br/>Next.js on Vercel"]
+    Phones -- "find the relay" --> Site
+    Site -- "judge the MVP" --> Gemini[(Gemini)]
+    Site -- leaderboard --> Tiger[(Tiger Data / Postgres)]
+```
+
+The phones never talk to the game directly. Each phone joins a lobby by code and streams its motion through the relay. The Godot game turns that motion into movement and aim for each team's shared body. The website explains the game and also runs the small API the game and phones depend on (`/api/games`, `/api/connection`, `/api/mvp`).
+
+## Quick start
+
+1. Open `apps/game` in **Godot 4.7** and press **F5**. Choose **Create a Lobby**.
+2. On the phones, run the companion app with Node.js 24 from the repository root:
    ```sh
    npm install
    npm run companion:lan
    ```
+3. On each phone, open the app, choose **Join a Lobby**, enter the code, then pick a team and a role.
 
-4. Open the app on each phone using the Expo instructions printed in the terminal. Phones just need to be online. Choose **Join a Lobby**, enter the six-character code, pick a team and role, and tap **Ready**.
-5. Every lobby lives on the Skill Issue relay, so the code is all a phone needs: the app finds the relay through `skillissue.vodka/api/connection`, the same service the game uses to open its lobby. **Copy Code** in the lobby copies just the code.
-6. All four ready phones start a three-second countdown. After the match, choose **Play Again** on the game computer to keep the lobby, or return to the main menu.
+No phones? Choose **Practice / Keyboard** in the game menu.
 
-`npm run companion:start` uses an Expo tunnel when needed; the game connection goes through the relay either way. Set `EXPO_PUBLIC_GAME_SERVER` to point the app at a different relay. Native builds also support `skillissue://join?code=<CODE>` links.
+The full guide, covering controls, deployment, graphics settings, the MVP judge and tests, is in **[docs/setup-and-development.md](docs/setup-and-development.md)**.
 
-For an internet-accessible deployment, run the standalone relay behind a TLS reverse proxy and set `EXPO_PUBLIC_GAME_SERVER` to its `wss://` URL. See [Internet connection](docs/internet-connection.md). Tiger Data is used for durable data and telemetry, not live WebSocket transport.
+## Repository layout
 
-The Next.js control-plane site lives in `apps/landing`: run `pnpm landing:dev`, build it with `pnpm landing:build`, and deploy that app on Vercel. Its `/api/connection` route publishes relay configuration; it does not proxy persistent WebSocket traffic.
-
-The landing page loads a Tiger Data leaderboard once on page load; use its reset/load button for another read. Configure `TIGER_DATABASE_URL` in Vercel and create the documented `leaderboard_entries` table; see [Tiger Data leaderboard](docs/tiger-data.md).
-
-Godot now asks `https://skillissue.vodka/api/games` to provision a game, then connects to the returned unique `/games/<gameId>` WSS route. The default can be overridden with `-- --control-plane=https://landing.example.com`. The relay still owns persistent WebSocket traffic; Vercel owns provisioning and metadata.
-
-When deploying `apps/server` on Render, use `npm install` as the build command and `npm run server:start` as the start command. No pnpm or Corepack setup is required.
-
-Joining fails with a useful retry message after ten seconds. A wrong code says so right away. An HTTPS browser page needs a `wss://` host; the native app can connect directly to the local `ws://` game.
-
-If the game loses its server session during a match, it returns to a fresh lobby. Join its new code and ready up to start again.
-
-## Controls and practice
-
-Hold the phone sideways, screen toward you, at a comfortable tilted angle. It calibrates by itself in a moment (no perfectly still hands needed), slowly follows your grip while you rest, and re-calibrates on its own if you change grip, so **Recenter** is rarely needed. The first time, the app asks for motion access; if it was turned off, it shows how to turn it back on in Settings.
-
-| Phone | Motion | Action |
-| --- | --- | --- |
-| Runner | Gentle forward/back tilt; tip either end down | Walk and strafe |
-| Runner | Twist about 30 degrees like a wheel, then return to center | Toggle sprint |
-| Runner | Quick flick away / toward you | Toggle crouch / jump or stand |
-| Gunner | Turn the phone left / right / up / down | Camera follows (not inverted); a quick snap turns up to 3×, so a 180° is a ~60° flick |
-| Gunner | Hold the left or right end dipped past ~15° | Keep turning that way (full speed at 40°); level out to stop |
-| Gunner | Hold **FIRE** | Shoot |
-| Gunner | Tap **AIM** | Aim down sights / sniper scope |
-| Gunner | Tap **RELOAD** | Reload |
-| Gunner | Tap **SWITCH** | Next owned weapon |
-
-Wheel gestures rearm below 12 degrees with a 350 ms debounce. **Practice Controls** in the companion teaches both roles without a lobby. **Practice / Keyboard** in the Godot menu enters a local match without phones. Keyboard controls are in [the Duo README](apps/game/entities/duo/README.md); `R` reloads blue's weapon and `O` reloads red's. Hold **Tab** for the live scoreboard. **F3** shows hitboxes and weapon spread in keyboard practice.
-
-In phone matches, the desktop host cannot move, aim, or fire. The mouse stays visible for menu navigation. Open **Menu / Esc** to adjust **Graphics** or **End Match**; the live game continues while settings are open. Ending early awards the team leading on kills, or declares a draw on equal scores, sends the results to phones, and shows the normal results screen. Host-ended results offer **Main Menu** to close the lobby; they do not offer a replay shortcut.
-
-Weapons have real magazines: pistol **12 / 1.25 s reload**, shotgun **6 / 1.8 s**, sniper **5 / 2.2 s**. Empty magazines reload automatically. HUDs show live health, ammo and reload progress; kills build a streak that resets on death, with the best streak retained in results.
-
-## End screen and MVP
-
-The results screen opens with "and the winner is…" and the winning team (**Red Team** / **Blue Team**, or **Nobody** on a draw), then shows five final stats per team (kills, KDR, accuracy, damage dealt, distance traveled in meters) beside the **Match MVP**. Any of the four players can be MVP: Gunners usually for KDR, kills or damage; Runners for distance or for being so hard to hit that the other team scored little or shot poorly. In a draw the bar is higher, and the screen can say **No MVP**.
-
-The game sends the finished match to the control plane (`POST /api/mvp`), which asks Gemini to judge it. Set `GEMINI_API_KEY` (and optionally `GEMINI_MODEL`, default `gemini-flash-latest`) in the Vercel environment for `apps/landing`; the key never ships in the game. If the endpoint is unconfigured, slow (12 s) or offline, the game picks with its own rule and labels the card "Judged offline".
-
-The MVP also gets a **raccoon badge** made for their accolade: Gemini draws it (`POST /api/mvp/badge`, image model `GEMINI_IMAGE_MODEL`, default `gemini-3.1-flash-image` with `gemini-2.5-flash-image` as fallback) and the card develops it into a team-colored medallion. With no MVP, the card shows Gemini's noir scene: tumbleweeds rolling through a rainy alley while a sly black-and-white raccoon lurks in a doorway. That picture is Gemini-only; if it doesn't arrive, the card simply has no picture. Judging and drawing start at the final whistle (`MvpService`), during the end banner, so they're usually ready when the results open; offline, an MVP's medal shows a drawn raccoon.
-
-## Graphics
-
-The default window is **1920 × 1080**. Open **Graphics** from the main menu or **Menu / Esc** during a match to set output resolution, 3D render scale, window mode and V-sync. Presets include 720p, 900p, 1080p, 2160 × 1440, 1440p (2560 × 1440), and 4K (3840 × 2160).
-
-Render scales range from **50% to 200%**. Lower values render fewer 3D pixels and upscale the result; higher values supersample the scene. HUD text keeps its own scale. Fullscreen follows the display's desktop resolution. **Apply** saves settings between launches; **Defaults** selects 1080p at 100%.
-
-To play or test with fewer phones, set **Settings → Player Count** (1–4, default 4) on the main menu; `-- --min-players=1` overrides it for one run. **Settings → Match Length** sets the clock from 2 to 5 minutes (default 5, saved like Player Count; `-- --match-minutes=N` overrides it for one run). To use the optional Node relay, run `npm run server:start`; Godot uses it when it already owns port 8080. An explicit game override is `-- --server=ws://host:port`.
-
-## Development and checks
-
-The companion is native-only; its web entry displays a native-controller message instead of loading motion controls. Use the Next.js landing app for browser connection information. In phone Practice, enable the optional debug stream using the same server and room. Both the embedded server and Node relay support it.
-
-Run from the repository root:
-
-```sh
-npm test
-npm run typecheck
-npm run lint
-```
-
-Node.js 24 is recommended because network tests use its built-in TypeScript stripping. `npm test` covers motion, lobby codes and relay lookup, connection lifecycle, protocol authority and relay limits. Set `GODOT_BIN` to include real WebSocket tests against the embedded Godot server. Import the project first on a fresh checkout. PowerShell example:
-
-```powershell
-$env:GODOT_BIN = "C:\tools\Godot_v4.7.2-stable_win64_console.exe"
-& $env:GODOT_BIN --headless --path apps/game --editor --import --quit
-npm test
-& $env:GODOT_BIN --headless --path apps/game --script res://tests/gameplay_smoke.gd
-& $env:GODOT_BIN --headless --path apps/game --script res://tests/lifecycle_smoke.gd
-```
-
-The gameplay smoke check exercises menu navigation, practice, magazines/reloading, damage feedback, kills/streaks, respawning, scoreboard, final-shot statistics and results navigation.
-The lifecycle smoke check joins with real WebSocket phones, drops the host session, and verifies that the new lobby can start a fresh match.
-
-| Folder | Purpose |
+| Folder | What's inside |
 | --- | --- |
-| `apps/game` | Godot game and embedded lobby server |
-| `apps/companion` | Expo phone controller, practice and `/debug` tools |
-| `apps/server` | Optional Node WebSocket relay and integration tests |
-| `packages/protocol` | Shared message types |
-| `docs/network-protocol.md` | [Connection and message contract](docs/network-protocol.md) |
+| [`apps/game`](apps/game/README.md) | Godot 4.7 game: the Duo character, weapons, maps, menus, built-in lobby server, smoke tests |
+| [`apps/companion`](apps/companion/README.md) | Expo / React Native phone controller, with practice mode for both roles |
+| [`apps/landing`](apps/landing/README.md) | Next.js website and control-plane API (skillissue.vodka) |
+| [`apps/server`](apps/server/README.md) | Optional standalone Node WebSocket relay and its network tests |
+| [`packages/protocol`](packages/protocol/README.md) | Shared message types for the game, phones and relay |
+| [`docs`](docs/README.md) | Setup guide, network protocol, deployment notes, dev reports, screenshots, website snapshot, hackathon journal |
+| [`archive`](archive/README.md) | Unused starter-template files, kept for history |
+| [`scripts`](scripts/test-game.mjs) | `test-game.mjs`: runs the Godot import and smoke tests |
+
+## Team
+
+| Person | Main areas |
+| --- | --- |
+| [Ryan Smith](https://github.com/Ryan-M-Smith) | Repo owner and monorepo; companion app; relay and protocol; website and control plane; game flow; Gemini MVP |
+| [Michael Shepherd](https://github.com/shephmic77) | Duo character, combat systems, weapons, maps (The Pit), noir theme for game and app, homepage ([details](CONTRIBUTIONS.md)) |
+| [Aditya Pratap Singh](https://github.com/Aditya-Pratap-Singh-17) | Motion sensing, gameplay HUD, graphics and pause menus, smoke tests, Android sensor and gunner smoothing fixes |
+| [Brian Podolskiy](https://github.com/Brian-Podolskiy) | First map and prototype player (now in [`apps/game/prototypes`](apps/game/prototypes/README.md)), health, armor and medkits |
+| [Kenneth Tran](https://github.com/trnKen1) | Godot project structure, split-screen views, global events, early HUD, networking layer, audio |
+
+Roles are taken from the commit history. See [Team & Roles](docs/hackathon-journal/notes/04-team-and-roles.md).
+
+## About this fork
+
+This is [Michael Shepherd](https://github.com/shephmic77)'s fork of the team repository **[Ryan-M-Smith/SkillIssue](https://github.com/Ryan-M-Smith/SkillIssue)**. The game code is the team's. This fork adds:
+
+- **[CONTRIBUTIONS.md](CONTRIBUTIONS.md)**: what I built, with pictures and the pull requests behind it.
+- **[The hackathon journal](docs/hackathon-journal/README.md)**: my notes from the weekend, covering decisions, timeline, testing, art direction and the retrospective.
+- **[A website snapshot](docs/website/README.md)**, so the homepage can still be seen after the domain expires.
+- A tidier layout: loose files moved into folders and given clearer names, with every reference updated and the Godot smoke tests re-run.
+
+## License
+
+[Apache License 2.0](LICENSE.txt). Fonts and sound effects keep their own licenses (see [`apps/game/audio/CREDITS.md`](apps/game/audio/CREDITS.md) and the license files next to each font).

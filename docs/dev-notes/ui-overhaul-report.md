@@ -82,15 +82,15 @@ Set `GODOT_BIN` to a Godot 4.7 executable for the embedded-server integration te
 
 Split-screen HUD:
 
-![Split-screen HUD with segmented health and weapon ammo](../previews/hud.png)
+![Split-screen HUD with segmented health and weapon ammo](../screenshots/hud.png)
 
 Graphics settings:
 
-![Graphics settings with 4K and independent render scale](../previews/graphics.png)
+![Graphics settings with 4K and independent render scale](../screenshots/graphics.png)
 
 Companion practice, captured on desktop without phone sensors:
 
-![Landscape companion practice and gesture guide](../previews/companion-practice.png)
+![Landscape companion practice and gesture guide](../screenshots/companion-practice.png)
 
 ## Remaining limits
 

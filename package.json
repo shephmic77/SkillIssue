@@ -1,7 +1,7 @@
 {
 	"name": "SkillIssue",
 	"version": "1.0.0",
-	"description": "",
+	"description": "Skill Issue: a 2v2 split-screen shooter where each team shares one character, controlled by two phones (HackPSU Fall 2026).",
 	"main": "index.js",
 	"workspaces": [
 		"apps/companion",
