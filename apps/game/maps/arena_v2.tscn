@@ -1,7 +1,7 @@
 [gd_scene format=3]
 
 [ext_resource type="Script" path="res://maps/arena_v2.gd" id="1_script"]
-[ext_resource type="PackedScene" path="res://arena_box.tscn" id="2_base"]
+[ext_resource type="PackedScene" path="res://maps/arena_box.tscn" id="2_base"]
 
 [sub_resource type="StandardMaterial3D" id="m_deck"]
 albedo_color = Color(0.42, 0.45, 0.52, 1)

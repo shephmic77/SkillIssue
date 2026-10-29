@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dwl5s4vl8fw74"]
 
-[ext_resource type="Script" uid="uid://cek53ng3g4dyi" path="res://PlayerMovement.gd" id="1_a202f"]
-[ext_resource type="Script" uid="uid://csbdw8l7igulq" path="res://PlayerHealthArmor.gd" id="2_noarx"]
-[ext_resource type="Script" uid="uid://5s7vr4o4ieen" path="res://weapon_system.gd" id="3_a0tk4"]
+[ext_resource type="Script" uid="uid://cek53ng3g4dyi" path="res://prototypes/PlayerMovement.gd" id="1_a202f"]
+[ext_resource type="Script" uid="uid://csbdw8l7igulq" path="res://prototypes/PlayerHealthArmor.gd" id="2_noarx"]
+[ext_resource type="Script" uid="uid://5s7vr4o4ieen" path="res://prototypes/weapon_system.gd" id="3_a0tk4"]
 
 [sub_resource type="Environment" id="Environment_g4v7s"]
 background_mode = 2

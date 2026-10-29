@@ -4,7 +4,7 @@ extends Control
 
 const VITALS = preload("res://ui/gameplay_vitals.gd")
 const GLYPH = preload("res://ui/gameplay_glyph.gd")
-const RETICLE = preload("res://crosshair.gd")
+const RETICLE = preload("res://ui/crosshair.gd")
 const DAMAGE_SHADER := "shader_type canvas_item; uniform float strength = 0.0; uniform float downed = 0.0; void fragment(){ vec2 edge = abs(UV - vec2(0.5)) * 2.0; float rim = pow(max(edge.x, edge.y), 5.0); vec3 tint = mix(vec3(1.0, 0.08, 0.12), vec3(0.08, 0.01, 0.025), downed); COLOR = vec4(tint, clamp(rim * strength + downed * 0.52, 0.0, 0.85)); }"
 ## Green edge glow when a health pack is picked up: only the outer border of the screen.
 const HEAL_SHADER := "shader_type canvas_item; uniform float strength = 0.0; void fragment(){ vec2 edge = abs(UV - vec2(0.5)) * 2.0; float rim = smoothstep(0.6, 1.0, max(edge.x, edge.y)); COLOR = vec4(0.25, 1.0, 0.45, rim * strength * 0.6); }"

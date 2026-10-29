@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://xeklalxukd60"]
 
-[ext_resource type="PackedScene" uid="uid://bxe5hwqwlf5om" path="res://main.tscn" id="1_main"]
+[ext_resource type="PackedScene" uid="uid://bxe5hwqwlf5om" path="res://modes/main.tscn" id="1_main"]
 [ext_resource type="Script" uid="uid://cbe087h1m41jo" path="res://modes/duo_sandbox.gd" id="2_sandbox"]
 
 [node name="Main" unique_id=1203397750 instance=ExtResource("1_main")]

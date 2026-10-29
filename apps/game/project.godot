@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameEvents="*res://game_events.gd"
+GameEvents="*res://scripts/game_events.gd"
 NetworkClient="*res://scripts/network/network_client.gd"
 GameSession="*res://scripts/game_session.gd"
 InputRouter="*res://scripts/input_router.gd"
