@@ -3,7 +3,7 @@
 ## expiry, and swap-on-death through the real embedded server with two WebSocket phones.
 extends SceneTree
 
-const ARENA := "res://modes/duo_sandbox.tscn"
+const ARENA := "res://modes/match.tscn"
 const LOBBY := "res://ui/lobby.tscn"
 ## Loaded in _run, not named at the top: a --script test compiles before the autoloads exist,
 ## and these scripts reach GameEvents through Duo.

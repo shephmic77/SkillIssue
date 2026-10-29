@@ -4,7 +4,7 @@
 extends Control
 
 const MENU_SCENE := "res://ui/main_menu.tscn"
-const GAME_SCENE := "res://modes/duo_sandbox.tscn"
+const GAME_SCENE := "res://modes/match.tscn"
 const COUNTDOWN := 3
 
 var _status: Label

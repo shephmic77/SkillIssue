@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://mn3ill8ohpq7" path="res://entities/duo/duo.tscn" id="1_h7cbt"]
 [ext_resource type="Shader" uid="uid://cgckfvrrnc3jr" path="res://maps/noir_surface.gdshader" id="1_noir"]
-[ext_resource type="Script" uid="uid://b8f1jwth2v6eo" path="res://entities/pickups/item_pickup.gd" id="2_kjx7f"]
+[ext_resource type="Script" uid="uid://b8f1jwth2v6eo" path="res://entities/pickups/health_pickup.gd" id="2_kjx7f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="sky_mat"]
 sky_top_color = Color(0.1, 0.1, 0.115, 1)

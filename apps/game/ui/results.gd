@@ -5,7 +5,7 @@ extends Control
 
 const MENU_SCENE := "res://ui/main_menu.tscn"
 const LOBBY_SCENE := "res://ui/lobby.tscn"
-const GAME_SCENE := "res://modes/duo_sandbox.tscn"
+const GAME_SCENE := "res://modes/match.tscn"
 
 
 var _mvp_box: VBoxContainer

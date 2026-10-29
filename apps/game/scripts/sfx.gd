@@ -5,10 +5,10 @@
 extends Node
 
 const SOUNDS := {
-	"click": preload("res://audio/GUI_Sound_Effects_by_Lokif/click.wav"),
-	"hover": preload("res://audio/GUI_Sound_Effects_by_Lokif/misc_menu.wav"),
-	"positive": preload("res://audio/GUI_Sound_Effects_by_Lokif/positive.wav"),
-	"negative": preload("res://audio/GUI_Sound_Effects_by_Lokif/negative.wav"),
+	"click": preload("res://audio/ui/click.wav"),
+	"hover": preload("res://audio/ui/misc_menu.wav"),
+	"positive": preload("res://audio/ui/positive.wav"),
+	"negative": preload("res://audio/ui/negative.wav"),
 }
 
 

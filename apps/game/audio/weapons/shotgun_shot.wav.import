@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ceo0avi8wqt84"
-path="res://.godot/imported/20 Gauge Single.wav-2bd9b731073342effba84781d6b8b420.sample"
+path="res://.godot/imported/shotgun_shot.wav-8840ed843743a3292a38a5a50c186a7d.sample"
 
 [deps]
 
-source_file="res://audio/20 Gauge Single.wav"
-dest_files=["res://.godot/imported/20 Gauge Single.wav-2bd9b731073342effba84781d6b8b420.sample"]
+source_file="res://audio/weapons/shotgun_shot.wav"
+dest_files=["res://.godot/imported/shotgun_shot.wav-8840ed843743a3292a38a5a50c186a7d.sample"]
 
 [params]
 

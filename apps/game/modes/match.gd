@@ -1,6 +1,6 @@
 ## Test match for the 2v2 split screen.
 ##
-## Run res://modes/duo_sandbox.tscn (F6). That scene loads main.tscn unchanged and adds
+## Run res://modes/match.tscn (F6). That scene loads split_screen_layout.tscn unchanged and adds
 ## this script on top, so nobody's files are edited. It:
 ##   - spawns one Duo per team (crude placeholder geometry) into World/Entities
 ##   - puts Team A's first-person camera on the LEFT screen, Team B's on the RIGHT
@@ -10,7 +10,7 @@
 ##   - works with the team's map as-is: at runtime it turns on collision for the map's CSG
 ##     pieces, adds a light if there is none, and uses the map's "Spawn*" pads
 ##   - builds a temporary test floor + cover only if the map has no geometry at all
-##   Nothing is ever saved into the map or main.tscn.
+##   Nothing is ever saved into the map or split_screen_layout.tscn.
 ##
 ## Match rules: first team to `kill_target` POINTS wins, or whoever leads when the
 ## `match_seconds` clock runs out (equal = draw). The live score and clock go to the phones
@@ -38,9 +38,9 @@ class_name DuoSandbox
 extends Node
 
 @export var duo_scene: PackedScene = preload("res://entities/duo/duo.tscn")
-## Which arena to fight in. Replaces main.tscn's World/ArenaBox at runtime (main.tscn itself is
+## Which arena to fight in. Replaces split_screen_layout.tscn's World/ArenaBox at runtime (split_screen_layout.tscn itself is
 ## not edited). Options: maps/the_pit.tscn (default), maps/arena_v2.tscn, or clear the field to play
-## on Brian's original arena_box.tscn.
+## on Brian's original arena_base.tscn.
 @export var map_scene: PackedScene = preload("res://maps/the_pit.tscn")
 @export var teams: Array[TeamData] = [
 	preload("res://data/teams/team_blue.tres"),
@@ -127,7 +127,7 @@ var _network_match := false
 
 
 func _ready() -> void:
-	# Wait one frame so every node in main.tscn has finished its own _ready.
+	# Wait one frame so every node in split_screen_layout.tscn has finished its own _ready.
 	_setup.call_deferred()
 
 
@@ -776,7 +776,7 @@ func _let_input_through(node: Node) -> void:
 		_let_input_through(c)
 
 
-## Swap main.tscn's arena for `map_scene` (runtime only).
+## Swap split_screen_layout.tscn's arena for `map_scene` (runtime only).
 func _swap_map(world: Node3D) -> void:
 	var old := world.get_node_or_null("ArenaBox")
 	var arena := map_scene.instantiate()

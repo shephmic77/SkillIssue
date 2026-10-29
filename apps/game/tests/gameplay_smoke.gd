@@ -3,7 +3,7 @@
 extends SceneTree
 
 const MENU := "res://ui/main_menu.tscn"
-const ARENA := "res://modes/duo_sandbox.tscn"
+const ARENA := "res://modes/match.tscn"
 const RESULTS := "res://ui/results.tscn"
 const GRAPHICS_TEST_CONFIG := "user://graphics_smoke.cfg"
 

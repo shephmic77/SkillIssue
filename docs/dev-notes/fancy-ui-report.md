@@ -82,15 +82,15 @@ Set `GODOT_BIN` to a Godot 4.7 executable for the embedded-server integration te
 
 Split-screen HUD:
 
-![Split-screen HUD with segmented health and weapon ammo](previews/hud.png)
+![Split-screen HUD with segmented health and weapon ammo](../previews/hud.png)
 
 Graphics settings:
 
-![Graphics settings with 4K and independent render scale](previews/graphics.png)
+![Graphics settings with 4K and independent render scale](../previews/graphics.png)
 
 Companion practice, captured on desktop without phone sensors:
 
-![Landscape companion practice and gesture guide](previews/companion-practice.png)
+![Landscape companion practice and gesture guide](../previews/companion-practice.png)
 
 ## Remaining limits
 
@@ -102,4 +102,4 @@ The final audit covered every requested implementation and both follow-ups. All 
 - Buzz messages are transported, but physical phone vibration is not implemented.
 - `npm audit` reports five high-severity entries in the upstream Expo tooling dependency chain. [The node-forge advisory has no patched release](https://github.com/advisories/GHSA-86w9-cpqp-85rv). [The Zod fix is in version 4.6.6](https://github.com/advisories/GHSA-mrhx-c7xc-m3w5), while this Expo CLI uses Zod 3. An incompatible Expo downgrade or forced Zod major override was not applied. These advisories remain open.
 
-The setup instructions and protocol contract are updated in [README.md](../README.md), [the companion README](../apps/companion/README.md), and [network-protocol.md](network-protocol.md).
+The setup instructions and protocol contract are updated in [README.md](../../README.md), [the companion README](../../apps/companion/README.md), and [network-protocol.md](../network-protocol.md).

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://denxtf3g4te8b"
-path="res://.godot/imported/click_2.wav-c4e8dd6742cf502cfea0543930e3fef3.sample"
+path="res://.godot/imported/click_2.wav-148bc13b939f94456da49e32f66194d5.sample"
 
 [deps]
 
-source_file="res://audio/GUI_Sound_Effects_by_Lokif/click_2.wav"
-dest_files=["res://.godot/imported/click_2.wav-c4e8dd6742cf502cfea0543930e3fef3.sample"]
+source_file="res://audio/ui/click_2.wav"
+dest_files=["res://.godot/imported/click_2.wav-148bc13b939f94456da49e32f66194d5.sample"]
 
 [params]
 

@@ -60,7 +60,7 @@ func _ready() -> void:
 	practice.custom_minimum_size = Vector2(420, 60)
 	practice.pressed.connect(func():
 		GameSession.leave_lobby()
-		get_tree().change_scene_to_file("res://modes/duo_sandbox.tscn"))
+		get_tree().change_scene_to_file("res://modes/match.tscn"))
 	var quit := UiKit.button("QUIT")
 	quit.custom_minimum_size = Vector2(420, 60)
 	quit.pressed.connect(func(): get_tree().quit())

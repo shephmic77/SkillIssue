@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://d1ryykjdp2ryj"
-path="res://.godot/imported/sharp_echo.wav-ac36d5ce86dfe8b7ea4d17b9eeb55ac0.sample"
+path="res://.godot/imported/sharp_echo.wav-6249138b2bd7e6a0bf5a1e5a609d35ab.sample"
 
 [deps]
 
-source_file="res://audio/GUI_Sound_Effects_by_Lokif/sharp_echo.wav"
-dest_files=["res://.godot/imported/sharp_echo.wav-ac36d5ce86dfe8b7ea4d17b9eeb55ac0.sample"]
+source_file="res://audio/ui/sharp_echo.wav"
+dest_files=["res://.godot/imported/sharp_echo.wav-6249138b2bd7e6a0bf5a1e5a609d35ab.sample"]
 
 [params]
 

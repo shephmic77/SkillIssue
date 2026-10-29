@@ -1,4 +1,4 @@
-## Arena v2: Brian's arena (arena_box.tscn, instanced unchanged as "Base") plus a multi-level,
+## Arena v2: Brian's arena (arena_base.tscn, instanced unchanged as "Base") plus a multi-level,
 ## Quake-style layout on top: a center tower (deck + crow's nest), two side towers, bridges,
 ## ramps, and cover on every level with walkable space underneath.
 ## Brian keeps owning the base layout: spawns, gun spots and floor come from his file, so his
@@ -6,7 +6,7 @@
 ## two leftovers:
 ##   - the old single-player test character (PlayerMovement) standing in the middle
 ##   - the health/armor spheres, which only work with that old test character
-## Nothing is saved into arena_box.tscn.
+## Nothing is saved into arena_base.tscn.
 extends Node3D
 
 @export var disable_test_player := true

@@ -1,5 +1,5 @@
 ## Four fake phones, no server needed. Add this node to any scene (e.g. under Main in
-## duo_sandbox.tscn) and run: it registers a fake game, assigns all four controller slots,
+## match.tscn) and run: it registers a fake game, assigns all four controller slots,
 ## starts the match, then drives every Duo with a test pattern through the real
 ## NetworkClient → GameSession → InputRouter → PhoneDuoController path.
 ## Movers walk in circles and jump, gunners sweep left/right and shoot.

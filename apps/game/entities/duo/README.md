@@ -19,7 +19,7 @@ Duo (CharacterBody3D)            duo.gd: wires components, nothing else
 └── Controllers                  phone + keyboard controllers are added at runtime
 ```
 
-**Try it:** open `res://modes/duo_sandbox.tscn` and press F6.
+**Try it:** open `res://modes/match.tscn` and press F6.
 Team A (Blue, left screen): WASD move, Space jump, C crouch, hold Shift sprint, mouse aim (click to capture), left click fire, right click scope, Q / mouse wheel swap gun.
 Team B (Red, right screen): IJKL move, U jump, O crouch, hold P sprint, arrow keys aim, Enter fire, / scope, . (period) swap gun.
 

@@ -3,7 +3,7 @@
 extends SceneTree
 
 const LOBBY := "res://ui/lobby.tscn"
-const ARENA := "res://modes/duo_sandbox.tscn"
+const ARENA := "res://modes/match.tscn"
 const MENU := "res://ui/main_menu.tscn"
 const RESULTS := "res://ui/results.tscn"
 

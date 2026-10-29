@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cgmt1camsr08g"
-path="res://.godot/imported/misc_menu_4.wav-b45a6e21794c47ad455d9cc2f0f98aa6.sample"
+path="res://.godot/imported/misc_menu_4.wav-7d4bbd3fddce8348578b2c8352368f4f.sample"
 
 [deps]
 
-source_file="res://audio/GUI_Sound_Effects_by_Lokif/misc_menu_4.wav"
-dest_files=["res://.godot/imported/misc_menu_4.wav-b45a6e21794c47ad455d9cc2f0f98aa6.sample"]
+source_file="res://audio/ui/misc_menu_4.wav"
+dest_files=["res://.godot/imported/misc_menu_4.wav-7d4bbd3fddce8348578b2c8352368f4f.sample"]
 
 [params]
 

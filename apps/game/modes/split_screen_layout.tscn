@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bxe5hwqwlf5om"]
 
-[ext_resource type="Script" uid="uid://k0ric8471u0d" path="res://scripts/match.gd" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://bhv1do6hy4esa" path="res://maps/arena_box.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://k0ric8471u0d" path="res://modes/match_placeholder.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://bhv1do6hy4esa" path="res://maps/arena_base.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://6wg13r27yo3w" path="res://ui/team_hud.tscn" id="3_h2yge"]
 [ext_resource type="Resource" path="res://data/teams/team_blue.tres" id="4_teamblue"]
 [ext_resource type="Resource" path="res://data/teams/team_red.tres" id="5_teamred"]
